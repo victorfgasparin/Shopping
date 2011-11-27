@@ -7,10 +7,13 @@
 *.o
 *.so
 
-# Projects File#
+# Projects File #
 .project
 .classpath
 .factoryclass
+.factorpath
+target/
+.settings
 
 # Packages #
 ############
