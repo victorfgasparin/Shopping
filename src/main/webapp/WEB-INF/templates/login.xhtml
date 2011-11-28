@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+	<p:lightBox width="50%" height="25%">  
+	    <h:outputLink value="#" title="Login" >  
+	        <h:outputText value="Login"/>  
+	    </h:outputLink>  
+	  
+	    <f:facet name="inline">  
+	       <h:panelGrid columns="1">  
+       		  <h:inputText value="" label="Usuário" />
+       		  <h:inputHidden value="" label="Senha" />
+       	   </h:panelGrid>
+	    </f:facet>  
+	</p:lightBox>  
+	<a href="?" title="Login">Login</a>
+	<a href="?" title="Cadastro">Cadastrar</a>
+</ui:composition>

@@ -18,15 +18,14 @@
 		<div id="header" class="pagesize">
 	        <h1 id="logo"><a href="?"></a></h1>
 	        <div id="topnav">
-	            <a href="?" title="Login">Login</a>
-	            <a href="?" title="Cadastro">Cadastrar</a>
+	            <ui:include src="login.xhtml"/>
 	        </div>
 	    </div>
 	</div>
 	<div id="mainnav-wrap" class="wrap">
 	    <div class="pagesize clearfix">
 	    	<div class="vernav">
-	    	    <ui:include src="../../menu.xhtml"/>
+	    	    <ui:include src="menu.xhtml"/>
 	        </div>
 	    </div>
 	</div>
@@ -49,7 +48,7 @@
 	        </div>
 	        <div id="rightcol">
 	        	<div class="inner">
-	            	<p> Carrinho de compras </p>
+	        	     <ui:insert name="rightContent"/>
 	            </div>
 	        </div>
 	    </div>
