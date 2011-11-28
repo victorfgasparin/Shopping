@@ -1,82 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-   xmlns:ui="http://java.sun.com/jsf/facelets"
-   xmlns:f="http://java.sun.com/jsf/core"
-   xmlns:h="http://java.sun.com/jsf/html"
-   xmlns:p="http://primefaces.prime.com.tr/ui"
-   xmlns:ice="http://www.icesoft.com/icefaces/component"
-   template="/WEB-INF/templates/default.xhtml">
-   <ui:define name="content">
-      <h1>Welcome to JBoss AS 7!</h1>
-
-      <p>You have successfully deployed a Java EE 6 web application
-         on JBoss AS 7.</p>
-
-      <h:form id="reg">
-         <h2>Register (Bean Validation example)</h2>
-         <p>Enforces annotation-based constraints defined on the
-            model class.</p>
-         <table>
-            <tr>
-               <th style="text-align: right;"><h:outputLabel
-                     for="name" value="Name:" /></th>
-               <td><h:inputText id="name" value="#{newMember.name}" />
-                  <h:message for="name" errorClass="invalid" /></td>
-            </tr>
-            <tr>
-               <th style="text-align: right;"><h:outputLabel
-                     for="email" value="Email:" /></th>
-               <td><h:inputText id="email"
-                     value="#{newMember.email}" /> <h:message
-                     for="email" errorClass="invalid" /></td>
-            </tr>
-            <tr>
-               <th style="text-align: right;"><h:outputLabel
-                     for="phoneNumber" value="Phone #:" /></th>
-               <td><h:inputText id="phoneNumber"
-                     value="#{newMember.phoneNumber}" /> <h:message
-                     for="phoneNumber" errorClass="invalid" /></td>
-            </tr>
-         </table>
-         <p>
-            <h:commandButton id="register"
-               action="#{memberRegistration.register}" value="Register" />
-            <h:outputText value=" Registered!"
-               rendered="#{facesContext.postback and empty facesContext.messageList}"
-               style="color: green;" />
-         </p>
-         <ice:outputLabel value="blablbsalsbjabsas ajs bakj"/>
-      </h:form>
-      <h2>Members</h2>
-      <h:panelGroup rendered="#{empty members}">
-         <em>No registered members.</em>
-      </h:panelGroup>
-      <h:dataTable var="_member" value="#{members}"
-         rendered="#{not empty members}">
-         <h:column>
-            <f:facet name="header">Id</f:facet>
-                #{_member.id}
-            </h:column>
-         <h:column>
-            <f:facet name="header">Name</f:facet>
-                #{_member.name}
-            </h:column>
-         <h:column>
-            <f:facet name="header">Email</f:facet>
-                #{_member.email}
-            </h:column>
-         <h:column>
-            <f:facet name="header">Phone #</f:facet>
-                #{_member.phoneNumber}
-            </h:column>
-         <h:column>
-            <f:facet name="header">REST URL</f:facet>
-            <a href="#{request.contextPath}/rest/members/#{_member.id}">/rest/members/#{_member.id}</a>
-         </h:column>
-         <f:facet name="footer">
-                REST URL for all members: <a
-               href="#{request.contextPath}/rest/members">/rest/members</a>
-         </f:facet>
-      </h:dataTable>
-   </ui:define>
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	template="/WEB-INF/templates/layoutShopping.xhtml">
+	
+	<ui:define name="content">
+		<div id="banner" class="clearfix">
+			<div id="banner-content">
+				<h1>YOUR LOGISTICS PARTNER</h1>
+				<p class="f14">lorem ipsum dolore</p>
+				<a href="?"><img src="resources/images/take.gif" alt="" />
+				</a>
+			</div>
+		</div>
+		<div id="content-wrap">
+			<div id="content" class="clearfix">
+				<h3 class="yellow f14">Bem vido ao shopping Grande Pirituba</h3>
+				<p>O sucesso de um shopping center é, sem dúvida nenhuma,
+					conseqüência da sua influência com a região em que está instalado,
+					e neste assunto, o Shopping Grande Pirituba é uma referência. Desde
+					sua inauguração em 1976, é mantida uma relação íntima, de respeito
+					e de importantes conquistas com o seu bairro. Moema é considerado o
+					bairro com melhor qualidade de vida de São Paulo, por manter as
+					raízes de uma região acolhedora. A presença do Shopping Ibirapuera
+					torna Moema ainda mais privilegiado e um dos mais valorizados da
+					capital paulista. Próximo ao Parque do Ibirapuera, um dos cartões
+					postais da cidade, e ao aeroporto de maior tráfego do País
+					(Congonhas), o Shopping Ibirapuera já tornou-se ponto de referência
+					no bairro.</p>
+				<p class="yellow">
+					<strong>Localização Av Raimundo Pereira de Magalhães</strong>
+				</p>
+				<img src="resources/images/img.gif" alt="" class="left" />
+				<p>Blahsjak sua shjak hskasa hs.as ahi</p>
+			</div>
+		</div>
+	</ui:define>
 </ui:composition>

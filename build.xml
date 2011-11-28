@@ -14,6 +14,9 @@
   	<delete>
   	    <fileset dir="/home/sergemax/development_programs/jboss-as-web-7.0.2.Final/standalone/deployments" includes="*.war*"/>
   	 </delete>
+  	<delete>
+  	  <fileset dir="/home/sergemax/development_programs/jboss-as-web-7.0.2.Final/standalone/tmp" includes="*" />
+  	</delete>
   	<copy file="./target/Shopping.war" todir="/home/sergemax/development_programs/jboss-as-web-7.0.2.Final/standalone/deployments"/>
   </target>
 </project>

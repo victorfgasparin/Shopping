@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:p="http://primefaces.prime.com.tr/ui">
+<h:head>
+   <title>Java EE 6 Starter Application</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   
+   <h:outputStylesheet name="css/reset.css" />
+   <h:outputStylesheet name="css/typography.css" />
+   <h:outputStylesheet name="css/main.css" />
+</h:head>
+<h:body>
+ <div id="mainwrap">																																																																																																																																																																																																																																																																																																																				
+	<div id="header-wrap" class="wrap">
+		<div id="header" class="pagesize">
+	        <h1 id="logo"><a href="?">BJkas bjaks bjaksbjabs jka bsja bskjaBusiness Central</a></h1>
+	        <div id="topnav">
+	            <a href="?" title="Login">Login<img src="resources/images/icon1.gif" alt="" /></a>
+	            <a href="?" title="Cadastro">Cadastrar<img src="resources/images/icon2.gif" alt="" /></a>
+	        </div>
+	    </div>
+	</div>
+	<div id="mainnav-wrap" class="wrap">
+	    <div id="mainnav" class="pagesize clearfix">
+	    	<div class="vernav">
+	    	    <ui:include src="../../menu.xhtml"/>
+	    	    blabla
+	        </div>
+	    </div>
+	</div>
+	<div id="container-wrap" class="wrap">
+	    <div id="container" class="pagesize clearfix">
+	    	<div id="leftcol">
+	        	<div class="inner">
+	            	<p>Alterar Perfil</p>
+	            	<p>Visualizar compras anteriores </p>
+	            	<p>Voce pode gostar de: </p>
+	            </div>
+	        </div>
+	        <div id="maincol">
+		        <ui:insert name="content">
+		                   [Template content will be inserted here]
+		        </ui:insert>
+	            <div id="footer">
+	            	&copy; Copyright 2011 EACH. All right reserved
+	            </div>
+	        </div>
+	        <div id="rightcol">
+	        	<div class="inner">
+	            	<p> Carrinho de compras </p>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+  </div>
+</h:body>
+</html>

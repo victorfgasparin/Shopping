@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+	<h:form>
+		<p:growl id="messages"/>  
+		<!-- clearfix -->
+	    <p:menubar autoSubmenuDisplay="true">  
+	        <p:submenu label="Lojas" icon="ui-icon ui-icon-pencil">    
+	            <p:menuitem value="Entretenimentos" url="#" icon="ui-icon ui-icon-arrowreturnthick-1-e" helpText="CTRL+Y"></p:menuitem>
+	            <p:menuitem value="Cosmétcos" url="#" icon="ui-icon ui-icon-arrowreturnthick-1-e" helpText="CTRL+Y"></p:menuitem>
+	            <p:menuitem value="Roupas" url="#" icon="ui-icon ui-icon-arrowreturnthick-1-w" helpText="CTRL+Z"></p:menuitem>  
+	        </p:submenu> 
+	        
+	        <p:submenu label="Produtos" icon="ui-icon ui-icon-document">  
+	            <p:submenu label="Entretenimento" icon="ui-icon ui-icon-contact">  
+	               <p:menuitem value="Video Games" url="#" helpText="CTRL+N" />  
+	               <p:menuitem value="Televisores" url="#" helpText="CTRL+O"/>
+	               <p:menuitem value="Computadores" url="#" helpText="CTRL+O"/>  
+	            </p:submenu>  
+	            <p:menuitem value="Cosméticos" url="#" />  
+	            <p:menuitem value="Roupas" url="#" />  
+	        </p:submenu>  
+	  
+	        <p:submenu label="Ofertas" icon="ui-icon ui-icon-pencil">  
+	          <p:menuitem value="Novas" url="#" />   
+	        </p:submenu>
+	  
+	        <p:submenu label="Buscar" icon="ui-icon ui-icon-help">  
+	            <p:menuitem value="Produtos" url="#" />
+	            <p:menuitem value="Lojas" url="#" />
+	        </p:submenu>  
+	  
+	        <p:menuitem label="Localição" icon="ui-icon ui-icon-gear"/>  
+	    </p:menubar>
+	 </h:form>
+</ui:composition>

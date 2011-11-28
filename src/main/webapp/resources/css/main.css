@@ -1,0 +1,200 @@
+/*========================================= 
+Comment layouts
+=========================================*/
+
+div.wrap {
+	text-align: center;
+}
+
+div.pagesize {
+	width: 919px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+div.module-box {
+	width: 100%;
+}
+
+div.module-box div.inner {
+	padding: 10px 24px;
+}
+
+div.three-boxes {
+	float: left;
+	width: 33.3%;
+}
+
+div.vernav {
+	margin: 0;
+}
+
+div.vernav ul {
+	margin: 0;
+	padding: 0;
+}
+
+div.vernav li {
+	list-style-type: none;
+	margin: 0 10px 0 0;
+	padding: 0;
+}
+
+div.vernav ul li, div.vernav ul li a, div.vernav ul li, div.vernav ul li a span {
+	float: left;
+	display: block;
+}
+
+
+/*========================================= 
+Layout
+=========================================*/
+
+#header-wrap {
+	background: url(../../resources/images/header_bg.png) left top repeat-x;
+	height: 120px;
+}
+
+h1#logo {
+	display: block;
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+
+h1#logo a {
+	
+	float: left;
+	width: 700px;
+	height: 120px;
+	text-indent: -5000px;
+	margin-left: 30px;
+	background: url(../../resources/images/logoShopping.png) left top no-repeat;
+}
+
+#topnav {
+	margin-top: 30px;
+	float: right;
+}
+
+#topnav a {
+	margin-left: 8px;
+}
+
+#mainnav-wrap {
+	height: 40px;
+	background: url(../../resources/images/mainnav_bg.gif) left top repeat-x;
+}
+
+#mainnav {
+	text-align: center;
+}
+
+#mainnav ul {
+	margin: 0 auto;
+	text-align: left;
+}
+
+#mainnav ul li {
+	margin: 0;
+}
+
+#mainnav ul li a span {
+	height: 40px;
+	line-height: 46px;
+	background: url(../../resources/images/mainnav_sep.gif) right top no-repeat;
+	padding: 0 20px;
+	font-weight: bold;
+}
+
+#mainnav ul li a#active span {
+	color: #cc9900;
+	font-weight: bold;
+}
+
+#container-wrap {
+	background: #a8a975 url(../../resources/images/bg_rp.gif) left top repeat-x;
+	height: 500px;
+}
+
+#leftcol {
+	background: #a8a975 url(../../resources/images/leftcol_bg.gif) right top no-repeat;
+	width: 185px;
+	height: 500px;
+	float: left;
+}
+
+#rightcol {
+	background: #a8a975 url(../../resources/images/rightcol_bg.gif) left top no-repeat;
+	width: 185px;
+	height: 500px;
+	float: right;
+}
+
+#maincol {
+	width: 549px;
+	float: left;
+	height: 800px;
+}
+
+#banner {
+	height: 228px;
+	background: url(../../resources/images/main_header.png) left top no-repeat;
+}
+
+#content-wrap {
+	background: url(../../resources/images/main_footer.jpg) left top repeat-y;
+}
+
+#content {
+	background: url(../../resources/images/main_footer1.jpg) left bottom no-repeat;
+	padding: 6px 15px 35px;
+}
+
+#banner-content {
+	margin: 90px 25px 0 0;
+	width: 325px;
+	text-align: right;
+	float: right;
+}
+
+#banner {
+	color: #fff;
+}
+
+#banner h1 {
+	font-size: 24px;
+	color: #fff;
+	margin-bottom: 8px;
+}
+
+#banner p {
+	margin-top: -8px;
+}
+
+.yellow {
+	color: #999966;
+	font-weight: bold;
+}
+
+.f14 {
+	font-size: 14px;
+}
+
+img.left {
+	float: left;
+	margin: 5px 10px 0 0;
+}
+
+#footer {
+	padding: 18px 0;
+	color: #000;
+	font-size: 11px;
+	text-align: center;
+}
+
+div.inner {
+	padding: 36px 12px;
+	color: #fff;
+}
+

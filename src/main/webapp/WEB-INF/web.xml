@@ -14,6 +14,11 @@
     <param-value>Development</param-value>
   </context-param>
   
+  <context-param>  
+    <param-name>primefaces.THEME</param-name>  
+    <param-value>humanity</param-value>  
+  </context-param> 
+  
   <!-- Welcome page -->
   <welcome-file-list>
     <welcome-file>/index.xhtml</welcome-file>
