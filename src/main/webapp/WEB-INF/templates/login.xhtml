@@ -6,18 +6,25 @@
 	xmlns:p="http://primefaces.prime.com.tr/ui"
 	xmlns:ice="http://www.icesoft.com/icefaces/component">
 
-	<p:lightBox width="50%" height="25%">  
+	<p:lightBox width="50%" height="120px;">  
 	    <h:outputLink value="#" title="Login" >  
 	        <h:outputText value="Login"/>  
 	    </h:outputLink>  
 	  
 	    <f:facet name="inline">  
-	       <h:panelGrid columns="1">  
-       		  <h:inputText value="" label="Usuário" />
-       		  <h:inputHidden value="" label="Senha" />
-       	   </h:panelGrid>
+	        <div class="inner" id="header-wrap" style="height:120px">
+	          <div align="center" style="font-size: 1.2em;">
+			       <h:panelGrid columns="1">
+			       	   
+			       		  <h:outputLabel for="username" value="Usuário"/> 
+			       		  <h:inputText id="username" value="" label="Usuário" />
+			       		  
+			       		  <h:outputLabel for="userpassword" value="Senha"/> 
+			       		  <h:inputSecret id="userpassword" value="" label="Senha" />
+		       	   </h:panelGrid>
+	       	   </div>
+       	   </div>
 	    </f:facet>  
-	</p:lightBox>  
-	<a href="?" title="Login">Login</a>
+	</p:lightBox>
 	<a href="?" title="Cadastro">Cadastrar</a>
 </ui:composition>
