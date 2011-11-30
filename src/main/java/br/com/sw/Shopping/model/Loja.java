@@ -28,6 +28,8 @@ public class Loja implements Serializable {
     @Column
     private String nome;
     @Column
+    private String logo;
+    @Column(length=5000)
     private String descricao;
     @Column
     private String localizacao;
@@ -118,5 +120,13 @@ public class Loja implements Serializable {
 
 	public void setShopping(Shopping shopping) {
 		this.shopping = shopping;
+	}
+
+	public String getLogo() {
+		return logo;
+	}
+
+	public void setLogo(String logo) {
+		this.logo = logo;
 	}
 }
