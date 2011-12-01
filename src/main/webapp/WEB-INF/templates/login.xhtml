@@ -6,18 +6,32 @@
 	xmlns:p="http://primefaces.prime.com.tr/ui"
 	xmlns:ice="http://www.icesoft.com/icefaces/component">
 
-	<p:lightBox width="50%" height="25%">  
-	    <h:outputLink value="#" title="Login" >  
-	        <h:outputText value="Login"/>  
-	    </h:outputLink>  
-	  
-	    <f:facet name="inline">  
-	       <h:panelGrid columns="1">  
-       		  <h:inputText value="" label="Usuário" />
-       		  <h:inputHidden value="" label="Senha" />
-       	   </h:panelGrid>
-	    </f:facet>  
-	</p:lightBox>  
-	<a href="?" title="Login">Login</a>
-	<a href="?" title="Cadastro">Cadastrar</a>
+	<h:form>
+		<p:lightBox width="25%" height="150px;">  
+		    <h:outputLink value="#" title="Login" >  
+		        <h:outputText value="Login"/>  
+		    </h:outputLink>  
+		  
+		    <f:facet name="inline">  
+		        <div id="header-wrap" style="height:120px">
+		          <div class="inner" align="center" style="font-size: 1.2em;">
+				       <h:panelGrid columns="2">
+				       		<h:column>
+				       		  <h:outputLabel for="username" value="Usuário"/> 
+				       		  <h:inputText id="username" value="" label="Usuário" size="10"/>
+				       		  <br/>
+				       		  <h:outputLabel for="userpassword" value="Senha"/> 
+				       		  <h:inputSecret id="userpassword" value="" label="Senha" size="10"/>
+				       		</h:column>
+				       		<h:column>
+				       			<p:commandButton value="Logar" action="#{usuario.logar}" style="align:rigth"/>
+				       			<h:outputText value="Usuário ou senha invalido" rendered="#{loginInvalido}"></h:outputText>
+				       		</h:column>
+			       	   </h:panelGrid>
+		       	   </div>
+	       	   </div>
+		    </f:facet>  
+		</p:lightBox>
+		<a href="?" title="Cadastro">Cadastrar</a>
+	</h:form>
 </ui:composition>

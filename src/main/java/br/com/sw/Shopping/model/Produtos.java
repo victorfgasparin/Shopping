@@ -27,6 +27,8 @@ public class Produtos implements Serializable {
     @Column
     private String nome;
     @Column
+    private String imagem;
+    @Column(length=5000)
     private String descricao;
     @Column
     private Integer quantidade;
@@ -107,6 +109,14 @@ public class Produtos implements Serializable {
 
 	public void setCategorias(List<Categorias> categorias) {
 		this.categorias = categorias;
+	}
+
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
 	}
 
 }
