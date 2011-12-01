@@ -1,35 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.prime.com.tr/ui"
-	xmlns:ice="http://www.icesoft.com/icefaces/component">
-
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.prime.com.tr/ui">
+	
 	<h:form>
-		<p:lightBox width="25%" height="150px;">  
+		<p:lightBox width="25%" height="auto">  
 		    <h:outputLink value="#" title="Login" >  
 		        <h:outputText value="Login"/>  
 		    </h:outputLink>  
 		  
-		    <f:facet name="inline">  
-		        <div id="header-wrap" style="height:120px">
-		          <div class="inner" align="center" style="font-size: 1.2em;">
-				       <h:panelGrid columns="2">
-				       		<h:column>
-				       		  <h:outputLabel for="username" value="UsuÃ¡rio"/> 
-				       		  <h:inputText id="username" value="" label="UsuÃ¡rio" size="10"/>
-				       		  <br/>
-				       		  <h:outputLabel for="userpassword" value="Senha"/> 
-				       		  <h:inputSecret id="userpassword" value="" label="Senha" size="10"/>
-				       		</h:column>
-				       		<h:column>
-				       			<p:commandButton value="Logar" action="#{usuario.logar}" style="align:rigth"/>
-				       			<h:outputText value="UsuÃ¡rio ou senha invalido" rendered="#{loginInvalido}"></h:outputText>
-				       		</h:column>
-			       	   </h:panelGrid>
-		       	   </div>
-	       	   </div>
+		    <f:facet name="inline">
+          	   <p:panel header="Entre com seus dados de login">  
+			        <h:panelGrid columns="2" rowClasses="conteudoCelula">
+			        	<h:outputLabel for="username" value="Usuário"/> 
+		       		    <p:inputText id="username" value="#{usuario.login}" label="Usuário" size="30"/>  
+			            
+			            <h:outputLabel for="userpassword" value="Senha"/> 
+		       		    <p:password id="userpassword" value="#{usuario.senha}" feedback="true" size="30"/>
+		       		    
+		       		    <h:outputText id="mensagemLoginInvalido" value="Login Inválido" rendered="#{loginInvalido}" />
+		       		    <p:commandButton value="Logar" action="#{usuario.logar}" style="align:rigth"/>
+			        </h:panelGrid>  
+			    </p:panel>  
 		    </f:facet>  
 		</p:lightBox>
 		<a href="?" title="Cadastro">Cadastrar</a>

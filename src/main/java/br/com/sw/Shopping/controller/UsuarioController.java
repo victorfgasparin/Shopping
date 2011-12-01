@@ -15,7 +15,13 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import org.primefaces.component.menuitem.MenuItem;
+import org.primefaces.model.DefaultMenuModel;
+import org.primefaces.model.MenuModel;
+
+import br.com.sw.Shopping.data.LojasProducer;
 import br.com.sw.Shopping.model.Atividades;
+import br.com.sw.Shopping.model.Loja;
 import br.com.sw.Shopping.model.Usuarios;
 import br.com.sw.Shopping.model.Usuarios_;
 
@@ -32,6 +38,9 @@ public class UsuarioController {
 
 	@Inject
 	private EntityManager em;
+	
+	@Inject
+	private LojasProducer lojasProducer;
 
 	@Inject
 	private Event<Atividades> filtroAtividades;
@@ -50,13 +59,15 @@ public class UsuarioController {
 		return this.usuarioLogado != null;
 	}
 
+	@Produces
+	@Named
 	public Boolean getLoginInvalido(){
 		return loginInvalido;
 	}
 	
 	@Produces
 	@Named
-	public void logar() {
+	public String logar() {
 		loginInvalido = true;
 		if (loginComSucesso()) {
 			loginInvalido = false;
@@ -64,8 +75,10 @@ public class UsuarioController {
 
 		filtroAtividades.fire(new Atividades());
 		
-		
-		
+		if (loginInvalido) {
+			return "loginSucesso";
+		}
+		return null;	
 	}
 
 	private boolean loginComSucesso() {
@@ -108,5 +121,22 @@ public class UsuarioController {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	
+	private MenuModel comprarCarrinho;
+
+	@Produces
+	@Named
+	public MenuModel getCarrinho() {
+		comprarCarrinho = new DefaultMenuModel();
+		
+		for (Loja loja : lojasProducer.getListaLojas()) {
+			MenuItem item = new MenuItem();
+			item.setValue("Dynamic Menuitem 1.1");
+			item.setUrl("#");
+			item.setIcon("/resources/images/lojas/"+ loja.getLogo());
+			comprarCarrinho.addMenuItem(item);
+		}
+		return comprarCarrinho;
 	}
 }

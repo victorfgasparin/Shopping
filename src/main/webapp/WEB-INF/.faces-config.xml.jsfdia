@@ -2,9 +2,9 @@
 <PROCESS model-entity="JSFProcess">
  <PROCESS-ITEM NAME="rules:*" PATH="*" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:*:0" NAME="item" PATH="*" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="sucessoLogin::#listas#lojas.xhtml"
+   <PROCESS-ITEM-OUTPUT ID="loginSucesso::#listas#lojas.xhtml"
     NAME="output" PATH="/listas/lojas.xhtml"
-    TARGET="rules:#listas#lojas.xhtml" TITLE="sucessoLogin" model-entity="JSFProcessItemOutput"/>
+    TARGET="rules:#listas#lojas.xhtml" TITLE="loginSucesso" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#listas#lojas.xhtml"

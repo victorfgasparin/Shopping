@@ -3,20 +3,27 @@
         simple example build file
     </description>
   <!-- set global properties for this build -->
+	<!--<property name="build" location="."/>
+  <property name="jboss" location="/home/sergemax/development_programs/jboss-as-web-7.0.2.Final"/>
+  <property name="jboss.standalone" location="${jboss}/standalone"/>
+	-->
   <property name="build" location="."/>
+  <property name="jboss" location="C:\DevelopmentFiles\programs\jboss-as-web-7.0.2.Final"/>
+  <property name="jboss.standalone" location="${jboss}\standalone"/>	
+  <property name="jboss.standalone.deploy" location="${jboss.standalone}\deployments"/>
 
   <target name="build">
-	  <exec executable="bash" newenvironment="false" dir="/home/sergemax/development_programs/jboss-as-web-7.0.2.Final/bin">
+	  <exec executable="bash" newenvironment="false" dir="${jboss}/bin">
 		  <arg value="standalone.sh"/>
 	  </exec>
   </target>
   <target name="CopyWar">
   	<delete>
-  	    <fileset dir="/home/sergemax/development_programs/jboss-as-web-7.0.2.Final/standalone/deployments" includes="*.war*"/>
+  	    <fileset dir="${jboss.standalone.deploy}" includes="*.war*"/>
   	 </delete>
   	<delete>
-  	  <fileset dir="/home/sergemax/development_programs/jboss-as-web-7.0.2.Final/standalone/tmp" includes="*" />
+  	  <fileset dir="${jboss.standalone}/tmp" includes="*" />
   	</delete>
-  	<copy file="./target/Shopping.war" todir="/home/sergemax/development_programs/jboss-as-web-7.0.2.Final/standalone/deployments"/>
+  	<copy file="./target/Shopping.war" todir="${jboss.standalone.deploy}"/>
   </target>
 </project>
