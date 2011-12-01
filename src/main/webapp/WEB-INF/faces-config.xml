@@ -10,4 +10,13 @@
 
    <!-- Write your navigation rules here. You are encouraged to use CDI for 
       creating @Named managed beans. -->
+      
+   <navigation-rule>
+	  <description>Default global navigation for the application</description>
+	  <from-view-id>*</from-view-id>
+	  <navigation-case>
+	   <from-outcome>sucessoLogin</from-outcome>
+	   <to-view-id>/listas/lojas.xhtml</to-view-id>
+	  </navigation-case>
+	</navigation-rule>
 </faces-config>
