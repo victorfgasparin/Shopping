@@ -4,5 +4,9 @@ insert into loja (id, descricao, localizacao, nome, shopping_id, logo) values (1
 insert into loja (id, descricao, localizacao, nome, shopping_id, logo) values (20,'A Fast Shop é uma rede de lojas brasileira de comercialização de eletrodomésticos e eletroeletrônicos de luxo. Fundada em 1986, a empresa possui lojas nos principais estados brasileiros. A Empresa já¡ patrocinou dois grandes clubes brasileiros. Em fevereiro de 2006 patrocionou o São Paulo Futebol Clube, estampando sua marca nas mangas da camisa, parceria essa que durou até inicio de 2009, quando passou a patrocinar a Sociedade Esportiva Palmeiras com sua marca também nas mangas da camisa.','Primeiro Andar, Ala D','FastShop', 1,'cea.jpg');
 insert into loja (id, descricao, localizacao, nome, shopping_id, logo) values (30,'A Fast Shop é uma rede de lojas brasileira de comercialização de eletrodomésticos e eletroeletrônicos de luxo. Fundada em 1986, a empresa possui lojas nos principais estados brasileiros. A Empresa já¡ patrocinou dois grandes clubes brasileiros. Em fevereiro de 2006 patrocionou o São Paulo Futebol Clube, estampando sua marca nas mangas da camisa, parceria essa que durou até inicio de 2009, quando passou a patrocinar a Sociedade Esportiva Palmeiras com sua marca também nas mangas da camisa.','Primeiro Andar, Ala D','FastShop', 1,'wtennis.jpg');
 
+insert into usuarios (id, nome, senha) values (100,'victor@gmail.com','victor');
+insert into usuarios (id, nome, senha) values (101,'renato@gmail.com','renato');
+insert into usuarios (id, nome, senha) values (102,'leandro@gmail.com','leandro');
+
 
 insert into Member (id, name, email, phone_number) values (0, 'John Smith', 'john.smith@mailinator.com', '2125551212') 

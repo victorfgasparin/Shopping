@@ -32,6 +32,11 @@
 	<div id="container-wrap" class="wrap">
 	    <div id="container" class="pagesize clearfix">
 	    	<h:form id="mainForm">
+	    		<p:ajaxStatus onstart="status.show()" oncomplete="status.hide()"/>
++	    		<p:dialog widgetVar="status" modal="true" closable="false">
++	    			Aguarde um instante ...
++	    		</p:dialog>
+	    	
 		    	<div id="leftcol">
 		        	<div class="inner">
 		        	    <ui:insert name="leftContent"/>

@@ -45,7 +45,6 @@ public class UsuarioController {
 	@Inject
 	private Event<Atividades> filtroAtividades;
 
-	@Inject
 	private Usuarios usuarioLogado;
 
 	private String login;
@@ -75,7 +74,7 @@ public class UsuarioController {
 
 		filtroAtividades.fire(new Atividades());
 		
-		if (loginInvalido) {
+		if (!loginInvalido) {
 			return "loginSucesso";
 		}
 		return null;	

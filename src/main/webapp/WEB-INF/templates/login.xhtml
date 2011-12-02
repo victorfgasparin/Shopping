@@ -5,27 +5,5 @@
    xmlns:h="http://java.sun.com/jsf/html"
    xmlns:p="http://primefaces.prime.com.tr/ui">
 	
-	<h:form>
-		<p:lightBox width="25%" height="auto">  
-		    <h:outputLink value="#" title="Login" >  
-		        <h:outputText value="Login"/>  
-		    </h:outputLink>  
-		  
-		    <f:facet name="inline">
-          	   <p:panel header="Entre com seus dados de login">  
-			        <h:panelGrid columns="2" rowClasses="conteudoCelula">
-			        	<h:outputLabel for="username" value="Usuário"/> 
-		       		    <p:inputText id="username" value="#{usuario.login}" label="Usuário" size="30"/>  
-			            
-			            <h:outputLabel for="userpassword" value="Senha"/> 
-		       		    <p:password id="userpassword" value="#{usuario.senha}" feedback="true" size="30"/>
-		       		    
-		       		    <h:outputText id="mensagemLoginInvalido" value="Login Inválido" rendered="#{loginInvalido}" />
-		       		    <p:commandButton value="Logar" action="#{usuario.logar}" style="align:rigth"/>
-			        </h:panelGrid>  
-			    </p:panel>  
-		    </f:facet>  
-		</p:lightBox>
-		<a href="?" title="Cadastro">Cadastrar</a>
-	</h:form>
+	
 </ui:composition>

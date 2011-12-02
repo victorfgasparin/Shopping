@@ -1,18 +1,67 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-   xmlns:ui="http://java.sun.com/jsf/facelets"
-   xmlns:f="http://java.sun.com/jsf/core"
-   xmlns:h="http://java.sun.com/jsf/html"
-   xmlns:p="http://primefaces.prime.com.tr/ui">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
 
-	 <h:form>
-	    <p:dock position="top" >  
-		    <p:menuitem value="Video" icon="/resources/images/menu/home.png" url="#"/>  
-		    <p:menuitem value="Email" icon="/resources/images/menu/produtoMenu.jpg" url="#"/>  
-		    <p:menuitem value="Portfolio" icon="/resources/images/menu/produtoMenu.jpg" url="#"/>  
-		    <p:menuitem value="Link" icon="/resources/images/menu/home.png" url="#"/>  
-		    <p:menuitem value="RSS" icon="/resources/images/menu/produtoMenu.jpg" url="#"/>  
-		    <p:menuitem value="History" icon="/resources/images/menu/home.png" url="#"/>  
+	<h:form id="formLogin">
+		<p:dock>
+			<p:menuitem value="Video" icon="/resources/images/menu/home.png"
+				url="#" />
+			<p:menuitem value="Email"
+				icon="/resources/images/menu/produtoMenu.jpg" url="#" />
+			<p:menuitem value="Portfolio"
+				icon="/resources/images/menu/produtoMenu.jpg" url="#" />
+			<p:menuitem value="Link" icon="/resources/images/menu/home.png"
+				url="#" />
+			<p:menuitem value="RSS" icon="/resources/images/menu/produtoMenu.jpg"
+				url="#" />
+			<p:menuitem value="History" icon="/resources/images/menu/home.png"
+				url="#" />
 		</p:dock>
-	 </h:form>
+
+
+		<p:accordionPanel collapsible="true" autoHeight="true"
+			fillSpace="true" rendered="#{not logado}">
+			<p:tab title="Login">
+				<div align="right">
+					<h:panelGrid columns="2" rowClasses="conteudoCelula" width="200">
+						<h:outputLabel for="username" value="Usuário" />
+						<p:inputText id="username" value="#{usuario.login}"
+							label="Usuário" size="30" />
+
+						<h:outputLabel for="userpassword" value="Senha" />
+						<p:password id="userpassword" value="#{usuario.senha}" size="30" />
+
+						<h:outputText id="mensagemLoginInvalido" value="Login Inválido"
+							rendered="#{loginInvalido}" />
+						<div align="right">
+							<p:commandButton value="Logar" action="#{usuario.logar}"
+								update="formLogin" process="@form" />
+						</div>
+					</h:panelGrid>
+				</div>
+			</p:tab>
+			<p:tab title="Cadastro">
+				<div align="right">
+					<h:panelGrid columns="2" rowClasses="conteudoCelula" width="200">
+						<h:outputLabel for="novousername" value="Usuário" />
+						<p:inputText id="novousername" value="#{usuario.login}"
+							label="Usuário" size="30" />
+
+						<h:outputLabel for="novouserpassword" value="Senha" />
+						<p:password id="novouserpassword" value="#{usuario.senha}"
+							size="30" />
+
+						<div align="right">
+							<p:commandButton value="Cadastrar" action="#{usuario.logar}"
+								update="formLogin" process="@form" />
+						</div>
+					</h:panelGrid>
+				</div>
+			</p:tab>
+		</p:accordionPanel>
+
+	</h:form>
 </ui:composition>
