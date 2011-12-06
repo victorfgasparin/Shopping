@@ -19,6 +19,8 @@ import javax.validation.constraints.Size;
 @Table
 public class Usuarios implements Serializable{
     private static final long serialVersionUID = 1L;
+	private static final String ANONIMO = "usuarioAnonimo";
+	
     @Id
     @GeneratedValue
     private Long id;
@@ -33,7 +35,12 @@ public class Usuarios implements Serializable{
     @OneToMany(mappedBy="usuario")
     private List <Compras> usuariosCompras;
 
-    public Long getId() {
+    public Usuarios() {	}
+    public Usuarios(String nome) {
+		this.nome = nome;
+	}
+
+	public Long getId() {
         return id;
     }
 
@@ -87,5 +94,13 @@ public class Usuarios implements Serializable{
     @Override
     public String toString() {
         return "entities.Usuarios[ idUsuarios=" + id + " ]";
+    }
+    
+    public boolean isAnonimo(){
+    	return id == null && nome != null && nome.equals(Usuarios.ANONIMO);
+    }
+    
+    public static Usuarios getUsuarioAnonimo(){
+    	return new Usuarios(Usuarios.ANONIMO);
     }
 }

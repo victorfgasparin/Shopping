@@ -1,58 +1,77 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-   xmlns:h="http://java.sun.com/jsf/html"
-   xmlns:ui="http://java.sun.com/jsf/facelets"
-   xmlns:p="http://primefaces.prime.com.tr/ui">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
 <h:head>
-   <title>Java EE 6 Starter Application</title>
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-   
-   <h:outputStylesheet name="css/reset.css" />
-   <h:outputStylesheet name="css/typography.css" />
-   <h:outputStylesheet name="css/main.css" />
+	<title>Java EE 6 Starter Application</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+	
+	
+	<h:outputStylesheet name="css/reset.css" />
+	<h:outputStylesheet name="css/typography.css" />
+	<h:outputStylesheet name="css/main.css" />
 </h:head>
 <h:body>
- <div id="mainwrap">																																																																																																																																																																																																																																																																																																																				
-	<div id="header-wrap" class="wrap">
-		<div id="header" class="pagesize">
-	        <h1 id="logo"><a href="?"></a></h1>
-	        <div id="topnav">
-	            <ui:include src="login.xhtml"/>
-	        </div>
-	    </div>
+	<div id="mainwrap">
+		<div id="header-wrap" class="wrap">
+			<div id="header" class="pagesize">
+				<!--  <h:outputText value="#{request.contextPath}" /> -->
+				<h1 id="logo">
+					<a href="/"></a>
+				</h1>
+				<div id="topnav"/>
+			</div>
+		</div>
+		<div id="mainnav-wrap" class="wrap">
+			<div class="vernav" align="cent">
+				<ui:include src="menu.xhtml" />
+			</div>
+		</div>
+		<div id="container-wrap" class="wrap">
+			<div id="container" class="pagesize clearfix">
+				<h:form id="mainForm">
+					<p:ajaxStatus onstart="status.show()" oncomplete="status.hide()"/>
+					<p:dialog header="Carregando Requisicao" widgetVar="status"
+						modal="true" closable="false" resizable="false">
+						<center>
+							<h:graphicImage url="#{resource['images:util/loading.gif']}" />
+								Aguarde um instante ... 
+							<h:graphicImage url="#{resource['images:util/loading_circulo.gif']}" />
+						</center>
+					</p:dialog>
+
+					<div id="leftcol">
+						<div class="inner">
+							<ui:include src="login.xhtml" />
+							<ui:insert name="leftContent" />
+						</div>
+					</div>
+					<div id="leftcolcorner"><br /></div>
+					<div id="maincol">
+						<p:outputPanel id="conteudoPricipal">
+							<ui:insert name="content"></ui:insert>
+						</p:outputPanel>
+						<div id="footer">&copy; Copyright 2011 EACH. All right
+							reserved</div>
+					</div>
+					<div id="rightcolcorner"><br /> </div>
+					<div id="rightcol">
+						<div class="inner">
+							<ui:insert name="rightContent" />
+						</div>
+					</div>
+
+					<p:stack icon="#{resource['images:util/stack.png']}" id="promocoes"
+						model="#{carrinho}">
+					</p:stack>
+
+				</h:form>
+			</div>
+		</div>
 	</div>
-	<div id="mainnav-wrap" class="wrap">
-	    <div class="pagesize clearfix">
-	    	<div class="vernav">
-	    	    <ui:include src="menu.xhtml"/>
-	        </div>
-	    </div>
-	</div>
-	<div id="container-wrap" class="wrap">
-	    <div id="container" class="pagesize clearfix">
-	    	<div id="leftcol">
-	        	<div class="inner">
-	            	<p>Alterar Perfil</p>
-	            	<p>Visualizar compras anteriores </p>
-	            	<p>Voce pode gostar de: </p>
-	            </div>
-	        </div>
-	        <div id="maincol">
-		        <ui:insert name="content">
-		                   [Template content will be inserted here]
-		        </ui:insert>
-	            <div id="footer">
-	            	&copy; Copyright 2011 EACH. All right reserved
-	            </div>
-	        </div>
-	        <div id="rightcol">
-	        	<div class="inner">
-	        	     <ui:insert name="rightContent"/>
-	            </div>
-	        </div>
-	    </div>
-	</div>
-  </div>
 </h:body>
 </html>

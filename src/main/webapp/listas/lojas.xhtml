@@ -1,21 +1,43 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.prime.com.tr/ui"
-	xmlns:ice="http://www.icesoft.com/icefaces/component"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.prime.com.tr/ui"
 	template="/WEB-INF/templates/layoutShopping.xhtml">
-	
+
+	<ui:define name="leftContent">
+		<ui:include src="../WEB-INF/templates/lojasIndex.xhtml"></ui:include>
+	</ui:define>
+
 	<ui:define name="content">
 		<div id="content-wrap">
 			<div id="content" class="clearfix">
 				<h3 class="yellow f14">Selecione uma loja da qual deseja realizar uma compra</h3>
+				
+				<p:fieldset legend="Lojas">
+					<p:dataGrid id="lojasDisponiveis22" var="loja" value="#{listaLojas}"
+						columns="3">
+						<p:column>
+							<p:panel id="ljPanel22" header="#{loja.nome}"
+								style="text-align:center">
+								<h:panelGrid columns="1" style="width:100%">
+										<h:outputLink>
+											<p:graphicImage
+											value="#{resource['images:lojas/'.concat(loja.logo)]}"
+											width="70" height="70"
+											url="**"/>
+										</h:outputLink>
+								</h:panelGrid>
+							</p:panel>
+						</p:column>
+					</p:dataGrid>
+				</p:fieldset>
 			</div>
 		</div>
 	</ui:define>
-	
+
 	<ui:define name="rightContent">
-		<p> Olá visitante </p>
+		<ui:include src="../WEB-INF/templates/layoutDireitaDefault.xhtml"></ui:include>
 	</ui:define>
 </ui:composition>

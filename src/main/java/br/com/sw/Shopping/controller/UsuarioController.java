@@ -15,7 +15,6 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import br.com.sw.Shopping.model.Atividades;
 import br.com.sw.Shopping.model.Usuarios;
 import br.com.sw.Shopping.model.Usuarios_;
 
@@ -32,12 +31,11 @@ public class UsuarioController {
 
 	@Inject
 	private EntityManager em;
-
+	
 	@Inject
-	private Event<Atividades> filtroAtividades;
+	private Event<Usuarios> loginEvent;
 
-	@Inject
-	private Usuarios usuarioLogado;
+	private Usuarios usuarioLogado = Usuarios.getUsuarioAnonimo();
 
 	private String login;
 	private String senha;
@@ -47,25 +45,28 @@ public class UsuarioController {
 	@Produces
 	@Named
 	public boolean isLogado() {
-		return this.usuarioLogado != null;
+		return !this.usuarioLogado.isAnonimo();
 	}
 
+	@Produces
+	@Named
 	public Boolean getLoginInvalido(){
 		return loginInvalido;
 	}
 	
 	@Produces
 	@Named
-	public void logar() {
+	public String logar() {
 		loginInvalido = true;
 		if (loginComSucesso()) {
 			loginInvalido = false;
+			loginEvent.fire(usuarioLogado);
 		}
-
-		filtroAtividades.fire(new Atividades());
 		
-		
-		
+		if (!loginInvalido) {
+			return "loginSucesso";
+		}
+		return null;	
 	}
 
 	private boolean loginComSucesso() {
@@ -93,6 +94,12 @@ public class UsuarioController {
 		
 		return false;
 	}
+	
+	public String logout(){
+		usuarioLogado = Usuarios.getUsuarioAnonimo();
+		loginEvent.fire(usuarioLogado);
+		return "home";
+	}
 
 	public String getLogin() {
 		return login;
@@ -108,5 +115,12 @@ public class UsuarioController {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	
+	public String getNome(){
+		if (isLogado()) {
+			return usuarioLogado.getNome();
+		}
+		return null;
 	}
 }

@@ -1,39 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.prime.com.tr/ui"
-	xmlns:ice="http://www.icesoft.com/icefaces/component">
-
-	 <h:form>
-	    <p:menubar autoSubmenuDisplay="true">  
-	        <p:submenu label="Lojas" icon="ui-icon ui-icon-newwin">    
-	            <p:menuitem value="Entretenimentos" url="#" helpText="CTRL+Y"></p:menuitem>
-	            <p:menuitem value="Cosmétcos" url="#" helpText="CTRL+Y"></p:menuitem>
-	            <p:menuitem value="Roupas" url="#" helpText="CTRL+Z"></p:menuitem>  
-	        </p:submenu> 
-	        
-	        <p:submenu label="Produtos" icon="ui-icon ui-icon-pencil">  
-	            <p:submenu label="Entretenimento" icon="ui-icon ui-icon-contact">  
-	               <p:menuitem value="Video Games" url="#" helpText="CTRL+N" />  
-	               <p:menuitem value="Televisores" url="#" helpText="CTRL+O"/>
-	               <p:menuitem value="Computadores" url="#" helpText="CTRL+O"/>  
-	            </p:submenu>  
-	            <p:menuitem value="Cosméticos" url="#" />  
-	            <p:menuitem value="Roupas" url="#" />  
-	        </p:submenu>  
-	  
-	        <p:submenu label="Ofertas" icon="ui-icon ui-icon-gear"> 
-	          <p:menuitem value="Novas" url="#" />   
-	        </p:submenu>
-	  
-	        <p:submenu label="Buscar" icon="ui-icon ui-icon-search">  
-	            <p:menuitem value="Produtos" url="#" />
-	            <p:menuitem value="Lojas" url="#" />
-	        </p:submenu>  
-	  
-	        <p:menuitem value="Localização" icon="ui-icon ui-icon-help"/>  
-	    </p:menubar>
-	 </h:form>
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+	
+	<h:form id="formMenu" style="z-index:9999999;">
+		<p:dock itemWidth="40" maxWidth="90" proximity="150" widgetVar="dockMenuShopping">
+			<p:menuitem value="Lojas" icon="/resources/images/menu/home.png"
+				url="/index.xhtml" />
+			<p:menuitem value="Produtos"
+				icon="/resources/images/menu/produtoMenu.jpg" url="/listas/lojas.xhtml" />
+			<p:menuitem value="Promo��es"
+				icon="/resources/images/menu/produtoMenu.jpg" url="/listas/lojas.xhtml" />
+			<p:menuitem value="Localize-se" icon="/resources/images/shopping/mapaMenu.jpeg"
+				url="/mapa/localizacao.xhtml" />
+			<p:menuitem value="Fale Conosco" icon="/resources/images/menu/produtoMenu.jpg"
+				url="/util/contato.xhtml" />
+		</p:dock>
+	</h:form>
+		
 </ui:composition>

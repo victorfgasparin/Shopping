@@ -7,7 +7,7 @@ div.wrap {
 }
 
 div.pagesize {
-	width: 919px;
+	width: 100%;
 	margin: 0 auto;
 	text-align: left;
 }
@@ -82,8 +82,8 @@ h1#logo a {
 }
 
 #mainnav-wrap {
-	height: 40px;
-	background: url(../../resources/images/mainnav_bg.gif) left top repeat-x;
+	height: 52px;
+	background-color: white;
 }
 
 #mainnav {
@@ -118,23 +118,33 @@ h1#logo a {
 }
 
 #leftcol {
+	width: 23%;
+	height: auto;
+	float: left;
+}
+#leftcolcorner {
 	background: #a8a975 url(../../resources/images/leftcol_bg.gif) right top no-repeat;
-	width: 185px;
-	height: 500px;
+	width: 2%;
+	height: 50%;
 	float: left;
 }
 
 #rightcol {
-	background: #a8a975 url(../../resources/images/rightcol_bg.gif) left top no-repeat;
-	width: 185px;
-	height: 500px;
+	width: 18%;
+	height: auto;
 	float: right;
+}
+#rightcolcorner {
+	background: #a8a975 url(../../resources/images/rightcol_bg.gif) left top no-repeat;
+	width: 2%;
+	height: 50%;
+	float: left;
 }
 
 #maincol {
-	width: 549px;
+	width: 55%;
 	float: left;
-	height: 800px;
+	height: auto;
 }
 
 #banner {
@@ -177,8 +187,17 @@ h1#logo a {
 	font-weight: bold;
 }
 
+.erro {
+	color: orange;
+	font-weight: bold;
+}
+
 .f14 {
 	font-size: 14px;
+}
+
+tr.conteudoCelula td {
+	padding-left: 10px;
 }
 
 img.left {
@@ -196,5 +215,13 @@ img.left {
 div.inner {
 	padding: 36px 12px;
 	color: #fff;
+}
+
+.ui-dock-bottom {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index:9999999;
 }
 

@@ -11,6 +11,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  *
@@ -32,6 +33,11 @@ public class Produtos implements Serializable {
     private String descricao;
     @Column
     private Integer quantidade;
+    @Column
+    private Double precoVenda;
+    @Column
+    private Double porcentagemPromocao;
+    
     @ManyToMany
     @JoinTable(name="CategoriasProduto")
     private List<Categorias> categorias;
@@ -117,6 +123,39 @@ public class Produtos implements Serializable {
 
 	public void setImagem(String imagem) {
 		this.imagem = imagem;
+	}
+
+	public Double getPrecoVenda() {
+		return precoVenda;
+	}
+
+	public void setPrecoVenda(Double precoVenda) {
+		this.precoVenda = precoVenda;
+	}
+
+	@Transient
+	public Double getPrecoComPromocao() {
+		if (temPromocao())
+			return precoVenda * (1-porcentagemPromocao);
+		return precoVenda;
+	}
+
+	@Transient
+	private boolean temPromocao() {
+		return porcentagemPromocao != null && porcentagemPromocao > 0;
+	}
+
+	public Double getPorcentagemPromocao() {
+		return porcentagemPromocao;
+	}
+
+	public void setPorcentagemPromocao(Double porcentagemPromocao) {
+		this.porcentagemPromocao = porcentagemPromocao;
+	}
+
+	@Transient
+	public boolean ehOmesmo(Produtos produto) {
+		return produto.getId().equals(this.id);
 	}
 
 }
