@@ -12,16 +12,10 @@ import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.ListJoin;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
 
+import br.com.sw.Shopping.dao.LojasDao;
 import br.com.sw.Shopping.model.Atividades;
-import br.com.sw.Shopping.model.Atividades_;
 import br.com.sw.Shopping.model.Loja;
-import br.com.sw.Shopping.model.Loja_;
 
 @SessionScoped
 @Stateful
@@ -35,6 +29,9 @@ public class LojasProducer implements Serializable {
 
 	@Inject
 	private EntityManager em;
+	
+	@Inject
+	private LojasDao lojasDao;
 
 	private List<Loja> lojasPorCategoria = new ArrayList<Loja>();
 	private List<Loja> lojaSelecionada = new ArrayList<Loja>();
@@ -45,23 +42,7 @@ public class LojasProducer implements Serializable {
 	}
 
 	public void listaLojaPorCategoria(@Observes final Atividades atividades) {
-		CriteriaBuilder cb = em.getCriteriaBuilder();
-		CriteriaQuery<Loja> query = cb.createQuery(Loja.class);
-		Root<Loja> lojas = query.from(Loja.class);
-		query.orderBy(cb.asc(lojas.get(Loja_.nome)));
-
-		if (atividades.getId() != null) {
-			ListJoin<Loja, Atividades> join = lojas.join(Loja_.atividades);
-
-			// for (Atividades atividadeFilter : atividades) {
-			Predicate temAtividades = cb.equal(join.get(Atividades_.id),
-					atividades.getId());
-			query.where(temAtividades);
-			// }
-
-		}
-
-		lojasPorCategoria = em.createQuery(query).getResultList();
+		lojasPorCategoria = lojasDao.getlistaLojas(atividades);
 	}
 	
 	public void atualizaProdutos(Loja loja){
@@ -73,11 +54,11 @@ public class LojasProducer implements Serializable {
 	public List<Loja> getListaLojas() {
 		return lojasPorCategoria;
 	}
-
+	
 	@Produces
 	@Named
-	public List<Loja> getLojaSelecionada() {
-		return lojaSelecionada;
+	public boolean getLojaSelecionada() {
+		return lojaSelecionada != null;
 	}
 
 }

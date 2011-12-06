@@ -5,58 +5,65 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.prime.com.tr/ui">
 
-	<p:accordionPanel collapsible="true" rendered="#{not logado}"
-		activeIndex="3" id="usuarioPanel">
-		<p:tab title="Login" id="loginTab">
-			<div align="center">
-				<h:panelGrid columns="2" border="3" rowClasses="conteudoCelula"
-					width="200" id="gridLogin">
-					<p:column>
-						<h:outputLabel for="username" value="Usuário" />
-					</p:column>
-					<p:column>
-						<p:inputText id="username" value="#{usuario.login}"
-							label="Usuário" size="30" required="true"/>
-						<p:message for="username" id="userMessage"/>	
-					</p:column>
-					<p:column>
-						<h:outputLabel for="userpassword" value="Senha" />
-					</p:column>
-					<p:column>
-						<p:password id="userpassword" value="#{usuario.senha}" size="30" required="true"/>
-						<p:message for="userpassword" id="passwMessage"/>
-					</p:column>
-					<p:column colspan="2">
-						<div style="padding-right: 0px">
-							<p:commandButton value="Logar" action="#{usuario.logar}"
-								update="usuarioPanel" process="username, userpassword"/>
-						</div>
-					</p:column>
-				</h:panelGrid>
-			</div>
-		</p:tab>
-		<p:tab title="Cadastro">
-			<div align="center">
-				<h:panelGrid columns="2" rowClasses="conteudoCelula" width="200" id="gridCadastroUsuario">
-					<h:outputLabel for="novousername" value="Usuário" />
-					<p:inputText id="novousername" value="#{usuario.login}"
-						label="Usuário" size="30" />
+	<h:panelGroup rendered="#{not logado}">
+		<p:accordionPanel collapsible="true" activeIndex="3" id="usuarioPanel">
+			<p:tab title="Login" id="loginTab">
+				<div align="center">
+					<h:form id="loginForm">
+						<h:panelGrid columns="2" border="3" rowClasses="conteudoCelula"
+							width="200" id="gridLogin">
+							<p:column>
+								<h:outputLabel for="username" value="Usuário" />
+							</p:column>
+							<p:column>
+								<p:inputText id="username" value="#{usuario.login}"
+									label="Usuário" size="30" required="true" />
+								<p:message for="username" id="userMessage" />
+							</p:column>
+							<p:column>
+								<h:outputLabel for="userpassword" value="Senha" />
+							</p:column>
+							<p:column>
+								<p:password id="userpassword" value="#{usuario.senha}" size="30"
+									required="true" />
+								<p:message for="userpassword" id="passwMessage" />
+							</p:column>
+							<p:column colspan="2">
+								<div style="padding-right: 0px">
+									<p:commandButton value="Logar" action="#{usuario.logar}"
+										update="usuarioPanel" process="username, userpassword" />
+								</div>
+							</p:column>
+						</h:panelGrid>
 
-					<h:outputLabel for="novouserpassword" value="Senha" />
-					<p:password id="novouserpassword" value="#{usuario.senha}"
-						size="30" />
+					</h:form>
+				</div>
+			</p:tab>
+			<p:tab title="Cadastro">
+				<div align="center">
+					<h:form id="cadastroUsuForm">
+						<h:panelGrid columns="2" rowClasses="conteudoCelula" width="200"
+							id="gridCadastroUsuario">
+							<h:outputLabel for="novousername" value="Usuário" />
+							<p:inputText id="novousername" value="#{usuario.login}"
+								label="Usuário" size="30" />
 
-					<div align="right">
-						<p:commandButton value="Cadastrar" action="#{usuario.logar}"
-							update="usuarioPanel"
-							process="novousername, novouserpassword" />
-					</div>
-				</h:panelGrid>
-			</div>
-		</p:tab>
-	</p:accordionPanel>
-	
-	<br />
-	<br />
-	<br />
+							<h:outputLabel for="novouserpassword" value="Senha" />
+							<p:password id="novouserpassword" value="#{usuario.senha}"
+								size="30" />
+
+							<div align="right">
+								<p:commandButton value="Cadastrar" action="#{usuario.logar}"
+									update="usuarioPanel" process="novousername, novouserpassword" />
+							</div>
+						</h:panelGrid>
+					</h:form>
+				</div>
+			</p:tab>
+		</p:accordionPanel>
+
+		<br />
+		<br />
+		<br />
+	</h:panelGroup>
 </ui:composition>

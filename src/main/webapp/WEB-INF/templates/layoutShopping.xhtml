@@ -37,7 +37,7 @@
 		</div>
 		<div id="container-wrap" class="wrap">
 			<div id="container" class="pagesize clearfix">
-				<h:form id="mainForm">
+				
 					<p:ajaxStatus onstart="status.show()" oncomplete="status.hide()"/>
 					<p:dialog header="Carregando Requisicao" widgetVar="status"
 						modal="true" closable="false" resizable="false">
@@ -51,13 +51,15 @@
 					<div id="leftcol">
 						<div class="inner">
 							<ui:include src="login.xhtml" />
-							<ui:insert name="leftContent" />
+							<h:form id="leftForm">
+								<ui:insert name="leftContent" />
+							</h:form>
 						</div>
 					</div>
 					<div id="leftcolcorner"><br /></div>
 					<div id="maincol">
 						<p:outputPanel id="conteudoPricipal">
-							<ui:insert name="content"></ui:insert>
+							<ui:insert name="content"/>
 						</p:outputPanel>
 						<div id="footer">&copy; Copyright 2011 EACH. All right
 							reserved</div>
@@ -65,7 +67,9 @@
 					<div id="rightcolcorner"><br /> </div>
 					<div id="rightcol">
 						<div class="inner">
-							<ui:insert name="rightContent" />
+							<h:form id="rightForm">
+								<ui:insert name="rightContent" />
+							</h:form>
 						</div>
 					</div>
 
@@ -73,7 +77,7 @@
 						model="#{carrinho}">
 					</p:stack>
 
-				</h:form>
+				
 			</div>
 		</div>
 	</div>

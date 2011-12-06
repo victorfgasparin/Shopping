@@ -40,6 +40,9 @@ public class UsuarioController {
 	private String login;
 	private String senha;
 	
+	private String novoLogin;
+	private String novaSenha;
+	
 	private boolean loginInvalido = false;
 
 	@Produces
@@ -67,6 +70,12 @@ public class UsuarioController {
 			return "loginSucesso";
 		}
 		return null;	
+	}
+	
+	@Produces
+	@Named
+	public String cadastraNovoUsuario(){
+		return "loginSucesso";
 	}
 
 	private boolean loginComSucesso() {
@@ -122,5 +131,21 @@ public class UsuarioController {
 			return usuarioLogado.getNome();
 		}
 		return null;
+	}
+
+	public String getNovoLogin() {
+		return novoLogin;
+	}
+
+	public void setNovoLogin(String novoLogin) {
+		this.novoLogin = novoLogin;
+	}
+
+	public String getNovaSenha() {
+		return novaSenha;
+	}
+
+	public void setNovaSenha(String novaSenha) {
+		this.novaSenha = novaSenha;
 	}
 }
