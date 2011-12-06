@@ -29,7 +29,7 @@
 					<p:column colspan="2">
 						<div style="padding-right: 0px">
 							<p:commandButton value="Logar" action="#{usuario.logar}"
-								update="usuarioPanel" process="@this, username, userpassword"/>
+								update="usuarioPanel" process="username, userpassword"/>
 						</div>
 					</p:column>
 				</h:panelGrid>
@@ -49,7 +49,7 @@
 					<div align="right">
 						<p:commandButton value="Cadastrar" action="#{usuario.logar}"
 							update="usuarioPanel"
-							process="@this, novousername, novouserpassword" />
+							process="novousername, novouserpassword" />
 					</div>
 				</h:panelGrid>
 			</div>
