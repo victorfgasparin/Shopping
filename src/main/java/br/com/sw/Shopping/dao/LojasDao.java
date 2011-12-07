@@ -42,5 +42,9 @@ public class LojasDao {
 		
 		return em.createQuery(query).getResultList();
 	}
+	
+	public Loja getById(Long id) {
+		return (Loja) em.find(Loja.class, id);
+	}
 
 }

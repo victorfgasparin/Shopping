@@ -7,8 +7,10 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateful;
 import javax.enterprise.context.SessionScoped;
+import javax.enterprise.event.Event;
 import javax.enterprise.event.Observes;
 import javax.enterprise.inject.Produces;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
@@ -32,6 +34,9 @@ public class LojasProducer implements Serializable {
 	
 	@Inject
 	private LojasDao lojasDao;
+	
+	@Inject
+	private Event<Loja> lojaEvent;
 
 	private List<Loja> lojasPorCategoria = new ArrayList<Loja>();
 	private List<Loja> lojaSelecionada = new ArrayList<Loja>();
@@ -45,14 +50,34 @@ public class LojasProducer implements Serializable {
 		lojasPorCategoria = lojasDao.getlistaLojas(atividades);
 	}
 	
-	public void atualizaProdutos(Loja loja){
-		System.out.println("");
+	public void atualizaProdutos(){
+		String lojaId = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("loja");
+		Loja lojaSelecionada = lojasDao.getById(Long.parseLong(lojaId));
+		lojaEvent.fire(lojaSelecionada);
+	}
+	
+	public void comoChegar(){
+		String lojaId = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("loja");
+		Loja lojaSelecionada = lojasDao.getById(Long.parseLong(lojaId));
+		lojaEvent.fire(lojaSelecionada);
 	}
 
 	@Produces
 	@Named
 	public List<Loja> getListaLojas() {
 		return lojasPorCategoria;
+	}
+	
+	@Produces
+	@Named
+	public List<LojasMenu> getListaLojasMenu() {
+		List<LojasMenu> lojasMenu = new ArrayList<LojasMenu>();
+		List<Loja> listaLojas = this.getListaLojas();
+		for (Loja loja : listaLojas) {
+			lojasMenu.add(new LojasMenu(loja));
+		}
+		return lojasMenu;
+		
 	}
 	
 	@Produces

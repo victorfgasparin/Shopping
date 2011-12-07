@@ -4,31 +4,37 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:m="http://code.google.com/p/gmaps4jsf/"
-    xmlns:mashup="http://code.google.com/p/mashups4jsf/"
+	xmlns:mashup="http://code.google.com/p/mashups4jsf/"
 	template="/WEB-INF/templates/layoutShopping.xhtml">
 
 	<ui:define name="leftContent">
 	</ui:define>
 
 	<ui:define name="content">
-		
-		
+
+
 		<!--  <script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
 		<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAxrVS1QxlpJHXxQ2Vxg2bJBQlXZ5yM1jzRRpBQe8Fh97h51z6DxREE5Rp7Yq-bVDVF4satZXFh2kL6w"></script>
-		<script type="text/javascript" src="http://maps.gstatic.com/intl/en_ALL/mapfiles/377a/maps2.api/main.js"></script> --> 
- 
+		<script type="text/javascript" src="http://maps.gstatic.com/intl/en_ALL/mapfiles/377a/maps2.api/main.js"></script> -->
+
 		<div id="content-wrap">
 			<div id="content" class="clearfix">
-				<h3 class="yellow f14">Voce pode visuadsadsadaslizar no mapa abixo como chegar</h3>
-				<h:panelGroup id="placeMap">
-                    <m:map width="500" height="450px" latitude="-23.506725" longitude="-46.717435" enableScrollWheelZoom="true" renderOnWindowLoad="true" type="G_NORMAL_MAP" zoom="15">
-	                      <m:marker>
-	                          <m:htmlInformationWindow htmlText="Shopping Grande Pirituba - Avenida Raimundo Pereira de Magalhães, 2190 - São Paulo, SP">
-	                          	
-	                          </m:htmlInformationWindow>
-	                      </m:marker>
-	                 </m:map>
-                </h:panelGroup>
+				<h:form>
+					<h1 class="yellow f14">Voce pode visualizar no mapa
+						abaixo como chegar no hopping Grande Pirituba</h1>
+					<h:panelGroup id="placeMap">
+						<m:map width="500" height="450px" latitude="-23.506725"
+							longitude="-46.717435" enableScrollWheelZoom="true"
+							renderOnWindowLoad="true" type="G_NORMAL_MAP" zoom="15">
+							<m:marker>
+								<m:htmlInformationWindow
+									htmlText="Shopping Grande Pirituba - Avenida Raimundo Pereira de Magalhães, 2190 - São Paulo, SP">
+
+								</m:htmlInformationWindow>
+							</m:marker>
+						</m:map>
+					</h:panelGroup>
+				</h:form>
 			</div>
 		</div>
 	</ui:define>

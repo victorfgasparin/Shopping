@@ -5,19 +5,43 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.prime.com.tr/ui">
 
-
 	<p:fieldset legend="Lojas">
-		<p:dataGrid id="lojasDisponiveis" var="loja" value="#{listaLojas}"
+		<p:dataGrid id="lojasDisponiveis" var="loja" value="#{listaLojasMenu}"
 			columns="2">
 			<p:column>
-				<p:fieldset legend="#{loja.nome}" id="ljPanel" style="text-align:center">
-					<h:panelGrid columns="1" style="width:100%">
-					    <p:commandLink action="#{lojaManager.atualizaProdutos}" update="conteudoPricipal">
-							<p:graphicImage value="#{resource['images:lojas/'.concat(loja.logo)]}"
-								width="70" height="70"/>
-							<f:attribute name="loja" value="#{loja}"/>
-						</p:commandLink>
-					</h:panelGrid>
+				<p:fieldset legend="#{loja.nome}" id="ljPanel"
+					style="text-align:center">
+					<div align="center">
+						<h:panelGrid columns="1">
+							<h:commandLink id="lojaLink" action="#{lojaManager.atualizaProdutos}"
+								style="align:center">
+								<p:graphicImage
+									value="#{resource['images:lojas/'.concat(loja.logo)]}"
+									width="70" height="70" />
+								<f:param name="loja" value="#{loja.id}" />
+							</h:commandLink>
+							<p:tooltip for="lojaLink" value="#{loja.descricao}"  showEffect="slide"  hideEffect="fade" /> 
+						</h:panelGrid>
+					</div>
+					<p:lightBox width="50%" height="60%">
+						<h:outputLink value="#" title="Como chegar a #{loja.nome}">
+							<h:outputText value="Como Chegar" />
+						</h:outputLink>
+
+						<f:facet name="inline">
+							<div align="center">
+								<h:panelGrid columns="2">
+									<h:outputFormat id="comoChegarLojaPanel">
+										<h1 class="yellow f14">
+											<h:outputText value="#{loja.caminho}" />
+										</h1>
+										<h:graphicImage
+											value="#{resource['images:localizacao/'.concat(loja.imagem)]}" />
+									</h:outputFormat>
+								</h:panelGrid>
+							</div>
+						</f:facet>
+					</p:lightBox>
 				</p:fieldset>
 			</p:column>
 		</p:dataGrid>
