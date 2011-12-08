@@ -40,6 +40,7 @@ public class LojasProducer implements Serializable {
 
 	private List<Loja> lojasPorCategoria = new ArrayList<Loja>();
 	private List<Loja> lojaSelecionada = new ArrayList<Loja>();
+	private String filtroAtividade;
 
 	@PostConstruct
 	public void init() {
@@ -84,6 +85,18 @@ public class LojasProducer implements Serializable {
 	@Named
 	public boolean getLojaSelecionada() {
 		return lojaSelecionada != null;
+	}
+	
+	public void teste(){
+		System.out.println("testando Ajax");
+	}
+
+	public String getFiltroAtividade() {
+		return filtroAtividade;
+	}
+
+	public void setFiltroAtividade(String filtroAtividade) {
+		this.filtroAtividade = filtroAtividade;
 	}
 
 }

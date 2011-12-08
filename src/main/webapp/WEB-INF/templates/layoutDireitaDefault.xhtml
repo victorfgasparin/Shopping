@@ -3,7 +3,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.prime.com.tr/ui">
+	xmlns:p="http://primefaces.org/ui">
 
 
 	<p:outputPanel layout="block" rendered="#{not logado}">
@@ -20,7 +20,7 @@
 			<h:outputText value="Seja Bem Vindo Novamente !!"/>
 		</p>
 		
-		<p:commandButton value="Logout" action="#{usuario.logout}" update="mainForm"/>
+		<p:commandButton value="Logout" action="#{usuario.logout}"/>
     </p:outputPanel>
     
 </ui:composition>

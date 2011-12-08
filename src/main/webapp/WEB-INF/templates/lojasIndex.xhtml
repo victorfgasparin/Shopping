@@ -3,8 +3,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.prime.com.tr/ui">
-
+	xmlns:p="http://primefaces.org/ui">
+	
 	<p:fieldset legend="Lojas">
 		<p:dataGrid id="lojasDisponiveis" var="loja" value="#{listaLojasMenu}"
 			columns="2">
@@ -13,14 +13,15 @@
 					style="text-align:center">
 					<div align="center">
 						<h:panelGrid columns="1">
-							<h:commandLink id="lojaLink" action="#{lojaManager.atualizaProdutos}"
-								style="align:center">
+							<h:commandLink id="lojaLink"
+								action="#{lojaManager.atualizaProdutos}" style="align:center">
 								<p:graphicImage
 									value="#{resource['images:lojas/'.concat(loja.logo)]}"
 									width="70" height="70" />
 								<f:param name="loja" value="#{loja.id}" />
 							</h:commandLink>
-							<p:tooltip for="lojaLink" value="#{loja.descricao}"  showEffect="slide"  hideEffect="fade" /> 
+							<p:tooltip for="lojaLink" value="#{loja.descricao}"
+								showEffect="slide" hideEffect="fade" />
 						</h:panelGrid>
 					</div>
 					<p:lightBox width="50%" height="60%">

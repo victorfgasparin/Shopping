@@ -4,7 +4,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.prime.com.tr/ui">
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title>Java EE 6 Starter Application</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
@@ -13,8 +13,9 @@
 		src="http://maps.google.com/maps?file=api&amp;v=2&amp;
 		key=ABQIAAAAxrVS1QxlpJHXxQ2Vxg2bJBT2yXp_ZAY8_ufC3CFXhHIE1NvwkxS9AOPy_YJl48ifAy4mq6I8SgK8fg"
 		type="text/javascript">
-	</script> 
-	
+		
+	</script>
+
 	<h:outputStylesheet name="css/reset.css" />
 	<h:outputStylesheet name="css/typography.css" />
 	<h:outputStylesheet name="css/main.css" />
@@ -27,7 +28,7 @@
 				<h1 id="logo">
 					<a href="/"></a>
 				</h1>
-				<div id="topnav"/>
+				<div id="topnav" />
 			</div>
 		</div>
 		<div id="mainnav-wrap" class="wrap">
@@ -37,47 +38,60 @@
 		</div>
 		<div id="container-wrap" class="wrap">
 			<div id="container" class="pagesize clearfix">
-				
-					<p:ajaxStatus onstart="status.show()" oncomplete="status.hide()"/>
-					<p:dialog header="Carregando Requisicao" widgetVar="status"
-						modal="true" closable="false" resizable="false">
-						<center>
-							<h:graphicImage url="#{resource['images:util/loading.gif']}" />
-								Aguarde um instante ... 
-							<h:graphicImage url="#{resource['images:util/loading_circulo.gif']}" />
-						</center>
-					</p:dialog>
 
-					<div id="leftcol">
-						<div class="inner">
-							<ui:include src="login.xhtml" />
-							<h:form id="leftForm">
-								<ui:insert name="leftContent" />
-							</h:form>
-						</div>
-					</div>
-					<div id="leftcolcorner"><br /></div>
-					<div id="maincol">
-						<p:outputPanel id="conteudoPricipal">
-							<ui:insert name="content"/>
-						</p:outputPanel>
-						<div id="footer">&copy; Copyright 2011 EACH. All right
-							reserved</div>
-					</div>
-					<div id="rightcolcorner"><br /> </div>
-					<div id="rightcol">
-						<div class="inner">
-							<h:form id="rightForm">
-								<ui:insert name="rightContent" />
-							</h:form>
-						</div>
-					</div>
+				<p:ajaxStatus onstart="status.show()" oncomplete="status.hide()" />
+				<p:dialog header="Carregando Requisicao" widgetVar="status"
+					modal="true" closable="false" resizable="false">
+					<center> <h:graphicImage
+						url="#{resource['images:util/loading.gif']}" /> Aguarde um
+					instante ... <h:graphicImage
+						url="#{resource['images:util/loading_circulo.gif']}" /> </center>
+				</p:dialog>
 
-					<p:stack icon="#{resource['images:util/stack.png']}" id="promocoes"
-						model="#{carrinho}">
-					</p:stack>
+				<div id="leftcol">
+					<div class="inner">
+						<p:selectOneMenu id="testadno"
+							value="#{lojaManager.filtroAtividade}">
+							<f:selectItem itemValue="1" itemLabel="item11" />
+							<f:selectItem itemValue="2" itemLabel="item22" />
+							<f:selectItem itemValue="3" itemLabel="item33" />
+							<p:ajax listener="#{lojaManager.teste}" event="change"
+								update="selecionado" process="testadno" />
+						</p:selectOneMenu>
+						
+						<h:outputText id="selecionado"  value="Item selecinado = #{lojaManager.filtroAtividade}" />
+						<ui:include src="login.xhtml" />
+						<h:form id="leftForm">
+							<ui:insert name="leftContent" />
+						</h:form>
+					</div>
+				</div>
+				<div id="leftcolcorner">
+					<br />
+				</div>
+				<div id="maincol">
+					<p:outputPanel id="conteudoPricipal">
+						<ui:insert name="content" />
+					</p:outputPanel>
+					<div id="footer">&copy; Copyright 2011 EACH. All right
+						reserved</div>
+				</div>
+				<div id="rightcolcorner">
+					<br />
+				</div>
+				<div id="rightcol">
+					<div class="inner">
+						<h:form id="rightForm">
+							<ui:insert name="rightContent" />
+						</h:form>
+					</div>
+				</div>
 
-				
+				<p:stack icon="#{resource['images:util/stack.png']}" id="promocoes"
+					model="#{carrinho}">
+				</p:stack>
+
+
 			</div>
 		</div>
 	</div>

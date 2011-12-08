@@ -13,6 +13,7 @@ import org.primefaces.component.menuitem.MenuItem;
 import org.primefaces.model.DefaultMenuModel;
 import org.primefaces.model.MenuModel;
 
+import br.com.sw.Shopping.controller.CarrinhoDeCompras.ItensDeCompra;
 import br.com.sw.Shopping.model.Produtos;
 
 @SessionScoped

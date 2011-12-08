@@ -3,21 +3,22 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.prime.com.tr/ui">
+	xmlns:p="http://primefaces.org/ui">
 
+	<h:form id="loginForm">
 	<h:panelGroup rendered="#{not logado}">
 		<p:accordionPanel collapsible="true" activeIndex="3" id="usuarioPanel">
 			<p:tab title="Login" id="loginTab">
 				<div align="center">
-					<h:form id="loginForm">
+					
 						<h:panelGrid columns="2" border="3" rowClasses="conteudoCelula"
 							width="200" id="gridLogin">
 							<p:column>
-								<h:outputLabel for="username" value="Usuário" />
+								<h:outputLabel for="username" value="UsuÃ¡rio" />
 							</p:column>
 							<p:column>
 								<p:inputText id="username" value="#{usuario.login}"
-									label="Usuário" size="30" required="true" />
+									label="UsuÃ¡rio" size="30" required="true" />
 								<p:message for="username" id="userMessage" />
 							</p:column>
 							<p:column>
@@ -30,34 +31,33 @@
 							</p:column>
 							<p:column colspan="2">
 								<div style="padding-right: 0px">
-									<p:commandButton value="Logar" action="#{usuario.logar}"
-										update="usuarioPanel" process="username, userpassword" />
+									<p:commandButton value="Logar" action="#{usuario.logar}">
+										<p:ajax event="click" process="username" update="userpassword" />
+									</p:commandButton>
 								</div>
 							</p:column>
 						</h:panelGrid>
 
-					</h:form>
 				</div>
 			</p:tab>
 			<p:tab title="Cadastro">
 				<div align="center">
-					<h:form id="cadastroUsuForm">
+					
 						<h:panelGrid columns="2" rowClasses="conteudoCelula" width="200"
 							id="gridCadastroUsuario">
-							<h:outputLabel for="novousername" value="Usuário" />
+							<h:outputLabel for="novousername" value="UsuÃ¡rio" />
 							<p:inputText id="novousername" value="#{usuario.login}"
-								label="Usuário" size="30" />
+								label="UsuÃ¡rio" size="30" />
 
 							<h:outputLabel for="novouserpassword" value="Senha" />
 							<p:password id="novouserpassword" value="#{usuario.senha}"
 								size="30" />
 
 							<div align="right">
-								<p:commandButton value="Cadastrar" action="#{usuario.logar}"
-									update="usuarioPanel" process="novousername, novouserpassword" />
+								<p:commandButton value="Cadastrar" action="#{usuario.logar}"/>
 							</div>
 						</h:panelGrid>
-					</h:form>
+					
 				</div>
 			</p:tab>
 		</p:accordionPanel>
@@ -66,4 +66,5 @@
 		<br />
 		<br />
 	</h:panelGroup>
+	</h:form>
 </ui:composition>

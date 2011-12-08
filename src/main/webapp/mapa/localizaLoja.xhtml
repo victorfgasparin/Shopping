@@ -3,7 +3,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/templates/layoutShopping.xhtml">
 
 	<ui:define name="leftContent">
@@ -19,12 +19,6 @@
 					</h1>
 					<h:outputText value="Buscar lojas por nome: " />
 					<p:inputText value="#{localizaLojaMBean.nomeLoja}" />
-					<p:commandButton value="Buscar" action="#{localizaLojaMBean.localizarLoja}" update="caminhoLojaPanel"/>
-					<h:outputFormat id="caminhoLojaPanel" rendered="#{not empty localizaLojaMBean.loja}">
-						<h:outputText value="#{localizaLojaMBean.caminho}" />
-						<h:graphicImage
-							value="#{resource['images:localizacao/'.concat(localizaLojaMBean.imagem)]}" />
-					</h:outputFormat>
 				</h:form>
 			</div>
 		</div>
