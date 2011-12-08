@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-   xmlns:ui="http://java.sun.com/jsf/facelets"
-   xmlns:f="http://java.sun.com/jsf/core"
-   xmlns:h="http://java.sun.com/jsf/html"
-   xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/templates/layoutShopping.xhtml">
 
 	<ui:define name="leftContent">
@@ -13,30 +13,73 @@
 	<ui:define name="content">
 		<div id="content-wrap">
 			<div id="content" class="clearfix">
-				<h:form id="listaLojas">
-					<h3 class="yellow f14">Selecione uma loja da qual deseja realizar uma compra</h3>
-					
-					<h:outputText value="Selecione uma Loja" rendered="#{not lojaSelecionada}" />
-					
-					<p:fieldset legend="Lojas" rendered="#{lojaSelecionada}">
-						<p:dataGrid id="lojasDisponiveis22" var="loja" value="#{listaLojas}"
-							columns="3">
+				<h3 style="text-align: center;">
+					<h:outputText
+						value="Selecione uma loja da qual deseja realizar uma compra"
+						rendered="#{not lojaSelecionada}" />
+				</h3>
+				<div align="center">
+					<p:carousel value="#{produtos}" var="prod" rows="1"
+						headerText="Promoções da #{nomeLojaSelecionada}"
+						rendered="#{lojaSelecionada}"
+						itemStyle="height:200px;width:600px;" effect="easeBothStrong">
+						<p:tab title="#{prod.nome}">
+							<h:form>
+								<h:panelGrid columns="3" cellpadding="10"
+									columnClasses="panelPromocoes">
+									<h:column>
+										<p:graphicImage
+											value="#{resource['images:produtos/'.concat(prod.imagem)]}"
+											width="160" height="190" />
+									</h:column>
+									<h:column>
+										<p:scrollPanel style="width:400px;height:180px">
+											<p:panel header="#{prod.nome}">
+												<h:outputText value="#{prod.descricao}" />
+												<br />
+												<br />
+												<br />
+												<h:outputText value="R$: #{prod.precoVenda}" />
+											</p:panel>
+										</p:scrollPanel>
+									</h:column>
+								</h:panelGrid>
+							</h:form>
+						</p:tab>
+					</p:carousel>
+
+					<br /> <br />
+
+					<h:form>
+						<p:dataGrid id="produtosDisponiveis" var="prod"
+							value="#{produtos}" columns="3">
 							<p:column>
-								<p:panel id="ljPanel22" header="#{loja.nome}"
-									style="text-align:center">
-									<h:panelGrid columns="1" style="width:100%">
-											<h:outputLink>
-												<p:graphicImage
-												value="#{resource['images:lojas/'.concat(loja.logo)]}"
-												width="70" height="70"
-												url="**"/>
-											</h:outputLink>
+								<p:panel id="produtos" header="#{prod.nome}">
+									<h:panelGrid columns="2" style="width:100%">
+										<h:outputLink>
+											<p:graphicImage
+												value="#{resource['images:produtos/'.concat(prod.imagem)]}"
+												width="70" height="70" />
+										</h:outputLink>
+										<div align="right">
+											<br /> <br />
+											<h:outputText value="R$: #{prod.precoVenda}" />
+											<br /> <br />
+
+											<p:commandButton value="Eu quero"
+												
+												action="#{pedido.adicionaProduto}" ajax="false">
+												<f:param name="produto" value="#{prod.id}" />
+											</p:commandButton>
+
+										</div>
 									</h:panelGrid>
 								</p:panel>
 							</p:column>
 						</p:dataGrid>
-					</p:fieldset>
-				</h:form>
+					</h:form>
+
+				</div>
 			</div>
 		</div>
 	</ui:define>

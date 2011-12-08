@@ -75,8 +75,8 @@ public class CarrinhoDeCompras {
 		
 		for (ItensDeCompra itemCompra : this.itensCarrinho) {
 			MenuItem item = new MenuItem();
-			item.setValue(itemCompra.getProduto().getNome());
-			item.setIcon("/resources/images/lojas/" + itemCompra.getProduto().getImagem());
+			item.setValue(itemCompra.getProduto().getNome().subSequence(0, 7) + "...");
+			item.setIcon("/resources/images/produtos/" + itemCompra.getProduto().getImagem());
 			
 			carrinhoMenu.addMenuItem(item);
 		}

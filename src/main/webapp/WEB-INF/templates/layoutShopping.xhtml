@@ -26,7 +26,7 @@
 			<div id="header" class="pagesize">
 				<!--  <h:outputText value="#{request.contextPath}" /> -->
 				<h1 id="logo">
-					<a href="/"></a>
+					<a href="/Shopping"></a>
 				</h1>
 				<div id="topnav" />
 			</div>
@@ -50,16 +50,6 @@
 
 				<div id="leftcol">
 					<div class="inner">
-						<p:selectOneMenu id="testadno"
-							value="#{lojaManager.filtroAtividade}">
-							<f:selectItem itemValue="1" itemLabel="item11" />
-							<f:selectItem itemValue="2" itemLabel="item22" />
-							<f:selectItem itemValue="3" itemLabel="item33" />
-							<p:ajax listener="#{lojaManager.teste}" event="change"
-								update="selecionado" process="testadno" />
-						</p:selectOneMenu>
-						
-						<h:outputText id="selecionado"  value="Item selecinado = #{lojaManager.filtroAtividade}" />
 						<ui:include src="login.xhtml" />
 						<h:form id="leftForm">
 							<ui:insert name="leftContent" />
@@ -69,12 +59,15 @@
 				<div id="leftcolcorner">
 					<br />
 				</div>
-				<div id="maincol">
-					<p:outputPanel id="conteudoPricipal">
-						<ui:insert name="content" />
-					</p:outputPanel>
-					<div id="footer">&copy; Copyright 2011 EACH. All right
-						reserved</div>
+				<div id="leftMainColBackCorner">
+					<br />
+				</div>
+				<div id="maincol" class="centerMainColBack">
+					<ui:insert name="content" />
+					<div id="footer">&copy; Copyright 2011 EACH. All right reserved</div>
+				</div>
+				<div id="rightMainColBackCorner">
+					<br />
 				</div>
 				<div id="rightcolcorner">
 					<br />
@@ -86,10 +79,12 @@
 						</h:form>
 					</div>
 				</div>
-
-				<p:stack icon="#{resource['images:util/stack.png']}" id="promocoes"
-					model="#{carrinho}">
-				</p:stack>
+				
+				<h:form>
+					<p:stack icon="#{resource['images:util/stack.png']}" id="promocoes"
+						model="#{carrinho}">
+					</p:stack>
+				</h:form>
 
 
 			</div>

@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateful;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.event.Event;
 import javax.enterprise.event.Observes;
@@ -39,7 +40,7 @@ public class LojasProducer implements Serializable {
 	private Event<Loja> lojaEvent;
 
 	private List<Loja> lojasPorCategoria = new ArrayList<Loja>();
-	private List<Loja> lojaSelecionada = new ArrayList<Loja>();
+	private Loja lojaSelecionada = null;
 	private String filtroAtividade;
 
 	@PostConstruct
@@ -53,13 +54,7 @@ public class LojasProducer implements Serializable {
 	
 	public void atualizaProdutos(){
 		String lojaId = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("loja");
-		Loja lojaSelecionada = lojasDao.getById(Long.parseLong(lojaId));
-		lojaEvent.fire(lojaSelecionada);
-	}
-	
-	public void comoChegar(){
-		String lojaId = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("loja");
-		Loja lojaSelecionada = lojasDao.getById(Long.parseLong(lojaId));
+		lojaSelecionada = lojasDao.getById(Long.parseLong(lojaId));
 		lojaEvent.fire(lojaSelecionada);
 	}
 
@@ -87,8 +82,10 @@ public class LojasProducer implements Serializable {
 		return lojaSelecionada != null;
 	}
 	
-	public void teste(){
-		System.out.println("testando Ajax");
+	@Produces
+	@Named
+	public String getNomeLojaSelecionada() {
+		return lojaSelecionada.getNome();
 	}
 
 	public String getFiltroAtividade() {

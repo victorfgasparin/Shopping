@@ -1,7 +1,6 @@
 /*========================================= 
 Comment layouts
 =========================================*/
-
 div.wrap {
 	text-align: center;
 }
@@ -40,16 +39,15 @@ div.vernav li {
 	padding: 0;
 }
 
-div.vernav ul li, div.vernav ul li a, div.vernav ul li, div.vernav ul li a span {
+div.vernav ul li,div.vernav ul li a,div.vernav ul li,div.vernav ul li a span
+	{
 	float: left;
 	display: block;
 }
 
-
 /*========================================= 
 Layout
 =========================================*/
-
 #header-wrap {
 	background: url(../../resources/images/header_bg.png) left top repeat-x;
 	height: 120px;
@@ -63,13 +61,13 @@ h1#logo {
 }
 
 h1#logo a {
-	
 	float: left;
 	width: 700px;
 	height: 120px;
 	text-indent: -5000px;
 	margin-left: 30px;
-	background: url(../../resources/images/logoShopping.png) left top no-repeat;
+	background: url(../../resources/images/logoShopping.png) left top
+		no-repeat;
 }
 
 #topnav {
@@ -102,7 +100,8 @@ h1#logo a {
 #mainnav ul li a span {
 	height: 40px;
 	line-height: 46px;
-	background: url(../../resources/images/mainnav_sep.gif) right top no-repeat;
+	background: url(../../resources/images/mainnav_sep.gif) right top
+		no-repeat;
 	padding: 0 20px;
 	font-weight: bold;
 }
@@ -113,7 +112,8 @@ h1#logo a {
 }
 
 #container-wrap {
-	background: #a8a975 url(../../resources/images/bg_rp.gif) left top repeat-x;
+	background: #a8a975 url(../../resources/images/bg_rp.gif) left top
+		repeat-x;
 	height: 500px;
 }
 
@@ -122,43 +122,72 @@ h1#logo a {
 	height: auto;
 	float: left;
 }
+
 #leftcolcorner {
-	background: #a8a975 url(../../resources/images/leftcol_bg.gif) right top no-repeat;
+	background: #a8a975 url(../../resources/images/leftcol_bg.gif) right top
+		no-repeat;
 	width: 2%;
 	height: 50%;
 	float: left;
 }
 
 #rightcol {
-	width: 18%;
+	width: 15%;
 	height: auto;
 	float: right;
 }
+
 #rightcolcorner {
-	background: #a8a975 url(../../resources/images/rightcol_bg.gif) left top no-repeat;
+	background: #a8a975 url(../../resources/images/rightcol_bg.gif) left top
+		no-repeat;
 	width: 2%;
 	height: 50%;
 	float: left;
 }
 
+#rightMainColBackCorner {
+	background: white url(../../resources/images/main_footer_right.jpg) left
+		top repeat-y;
+	width: 25px;
+	height: 700px;
+	float: left;
+}
+
+#leftMainColBackCorner {
+	background: white url(../../resources/images/main_footer_left.jpg) left
+		top repeat-y;
+	width: 21px;
+	height: 700px;
+	float: left;
+}
+
+.centerMainColBack {
+	background: white;
+}
+
+.panelPromocoes {
+	vertical-align: top;
+	height: 190px;
+}
+
 #maincol {
 	width: 55%;
 	float: left;
-	height: auto;
+	height: 700px;
 }
 
 #banner {
 	height: 228px;
-	background: url(../../resources/images/main_header.png) left top no-repeat;
+	background: url(../../resources/images/main_header.png) left top
+		no-repeat;
 }
 
 #content-wrap {
-	background: url(../../resources/images/main_footer.jpg) left top repeat-y;
+	
 }
 
 #content {
-	background: url(../../resources/images/main_footer1.jpg) left bottom no-repeat;
-	padding: 6px 15px 35px;
+	
 }
 
 #banner-content {
@@ -218,10 +247,9 @@ div.inner {
 }
 
 .ui-dock-bottom {
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    width: 100%;
-    z-index:9999999;
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	width: 100%;
+	z-index: 9999999;
 }
-

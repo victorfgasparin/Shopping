@@ -5,41 +5,43 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/templates/layoutShopping.xhtml">
-	
+
 	<ui:define name="leftContent">
 	</ui:define>
-	
+
 	<ui:define name="content">
 		<div id="content-wrap">
 			<div id="content" class="clearfix">
-				<p:galleria  effect="#{galeriaShopping.efeito}" effectSpeed="1000" value="#{galeriaShopping.imagens}" var="imageShopping" showFilmstrip="false">  
-				       <p:graphicImage value="#{resource['images:shopping/'.concat(imageShopping)]}"  title="#{imageShopping}"/>
-				</p:galleria>
-			
+				<div align="center">
+					<p:galleria effect="#{galeriaShopping.efeito}" effectSpeed="1000"
+						value="#{galeriaShopping.imagens}" var="imageShopping"
+						showFilmstrip="false">
+						<p:graphicImage
+							value="#{resource['images:shopping/'.concat(imageShopping)]}"
+							title="#{imageShopping}" />
+					</p:galleria>
+				</div>
+
 				<h3 class="yellow f14">Bem vido ao shopping Grande Pirituba</h3>
-				<p>O sucesso de um shopping center Ã©, sem dávida nenhuma,
-					consequência da sua influência com a região em que está¡ instalado,
+				<p>O sucesso de um shopping center é, sem dúvida nenhuma,
+					consequência da sua influência com a região em que está instalado,
 					e neste assunto, o Shopping Grande Pirituba é uma referência. Desde
-					sua inauguraçãoo em 1976, é mantida uma relação íntima, de respeito
-					e de importantes conquistas com o seu bairro. Moema Ã© considerado o
-					bairro com melhor qualidade de vida de São Paulo, por manter as
-					raízes de uma região acolhedora. A presenÃ§a do Shopping Ibirapuera
-					torna Moema ainda mais privilegiado e um dos mais valorizados da
-					capital paulista. Próximo ao Parque do Ibirapuera, um dos cartõs
-					postais da cidade, e ao aeroporto de maior tráfego do País
-					(Congonhas), o Shopping Ibirapuera já¡ tornou-se ponto de referÃªncia
-					no bairro.</p>
+					sua inauguraçãoo em 2011, é mantida uma relação íntima, de respeito
+					e de importantes conquistas com o seu bairro. Pirituba é considerado
+					o bairro com melhor qualidade de vida de São Paulo, por manter as
+					raízes de uma região acolhedora. A presença do Shopping Grande Pirituba
+					torna Pirituba ainda mais privilegiado e um dos mais valorizados da
+					capital paulista. Próximo a Castelo Branco, o Shopping Grande
+					Pirituba já¡ tornou-se ponto de referência no bairro.</p>
 				<p class="yellow">
 					<strong>Localização Av Raimundo Pereira de Magalhães</strong>
 				</p>
-				
-				<img src="resources/images/img.gif" alt="" class="left" />
 			</div>
 		</div>
-		
+
 	</ui:define>
-	
+
 	<ui:define name="rightContent">
-		<ui:include src="/WEB-INF/templates/layoutDireitaDefault.xhtml"/>
+		<ui:include src="/WEB-INF/templates/layoutDireitaDefault.xhtml" />
 	</ui:define>
 </ui:composition>
