@@ -148,4 +148,8 @@ public class UsuarioController {
 	public void setNovaSenha(String novaSenha) {
 		this.novaSenha = novaSenha;
 	}
+
+	public Usuarios getUsuario() {
+		return usuarioLogado;
+	}
 }

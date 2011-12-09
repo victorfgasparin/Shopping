@@ -7,13 +7,14 @@ import javax.ejb.Stateful;
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.event.Observes;
 import javax.enterprise.inject.Produces;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.primefaces.component.menuitem.MenuItem;
 import org.primefaces.model.DefaultMenuModel;
 import org.primefaces.model.MenuModel;
 
-import br.com.sw.Shopping.controller.CarrinhoDeCompras.ItensDeCompra;
+import br.com.sw.Shopping.model.Compras;
 import br.com.sw.Shopping.model.Produtos;
 
 @SessionScoped
@@ -21,6 +22,11 @@ import br.com.sw.Shopping.model.Produtos;
 @Stateful
 public class CarrinhoDeCompras {
 
+	private Integer cartao;
+	private Integer numCartao;
+	private Integer codCartao;
+	
+	
 	public class ItensDeCompra {
 		private Produtos produto;
 		private Double valor;
@@ -57,12 +63,17 @@ public class CarrinhoDeCompras {
 		
 	}
 	
+	@Inject
+	private UsuarioController usuario;
+	
 	private List<ItensDeCompra> itensCarrinho = new ArrayList<ItensDeCompra>();
 	private MenuModel carrinhoMenu;
 
 	public List<ItensDeCompra> getItensCarrinho() {
 		return itensCarrinho;
 	}
+	
+	
 
 	@Produces
 	@Named
@@ -92,6 +103,71 @@ public class CarrinhoDeCompras {
 		ItensDeCompra itensDeCompra = new ItensDeCompra(produto, 1 + quantidadeAntiga);
 		itensCarrinho.add(itensDeCompra);
 		atualizaMenuCarrinho();
+	}
+	
+	@Produces
+	@Named
+	public Double getTotalPedido(){
+		Double total =  0d;
+		for (ItensDeCompra itens : itensCarrinho) {
+			total += itens.getValor() * itens.getQuantidade();
+		}
+		return total;
+	}
+	
+	@Produces
+	@Named
+	public Boolean getCarrinhoVazio(){
+		return itensCarrinho.size() == 0;
+	}
+	
+	public void limparCarrinho(){
+		itensCarrinho.clear();
+		carrinhoMenu = new DefaultMenuModel();
+	}
+	
+	public void efetivarPedido(){
+		if (!usuario.isLogado()) {
+			
+		}else{
+			new Compras();
+		}
+	}
+
+
+
+	public Integer getCartao() {
+		return cartao;
+	}
+
+
+
+	public void setCartao(Integer cartao) {
+		this.cartao = cartao;
+	}
+
+
+
+	public Integer getNumCartao() {
+		return numCartao;
+	}
+
+
+
+	public void setNumCartao(Integer numCartao) {
+		this.numCartao = numCartao;
+	}
+
+
+
+	public Integer getCodCartao() {
+		return codCartao;
+	}
+
+
+
+	public void setCodCartao(Integer codCartao) {
+		this.codCartao = codCartao;
 	}
 	
 	

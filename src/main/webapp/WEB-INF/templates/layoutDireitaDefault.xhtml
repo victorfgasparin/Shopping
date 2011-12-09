@@ -23,4 +23,36 @@
 		<p:commandButton value="Logout" action="#{usuario.logout}"/>
     </p:outputPanel>
     
+    
+    <p:panel header="Pedido em Andamento" toggleable="true" rendered="#{not carrinhoVazio}">
+    	<h:outputLabel value="Total do Pedido:  " for="totalPedido"/>
+    	<h:outputText value="#{totalPedido}" />
+    	
+    	<br />
+    	<br />
+    	
+    	<p:commandButton action="#{carrinhoDeCompras.limparCarrinho}" value="Limpar Carrinho"></p:commandButton>
+    	
+    	<br />
+	    <br />
+	    <br />
+	    <br />
+	    
+	    <h:panelGrid columns="2">
+		     <h:outputLabel for="cartao" value="Cartao: "/>
+		     <p:selectOneMenu id="cartao" value="#{carrinhoDeCompras.cartao}">
+		    			<f:selectItem itemValue="1" itemLabel="Master Card" />
+		    			<f:selectItem itemValue="1" itemLabel="Visa" />
+		    			<f:selectItem itemValue="1" itemLabel="American Express" />
+		    		</p:selectOneMenu>
+		    
+		    <h:outputLabel for="numcartao" value="Num Cartao: "></h:outputLabel><p:inputText id="numcartao" value="#{carrinhoDeCompras.numCartao}" size="15"/>
+		    <h:outputLabel for="codcartao" value="Cod. Segurança: "/> <p:inputText id="codcartao" value="#{carrinhoDeCompras.codCartao}" size="15"/>
+	    </h:panelGrid>
+	    <br />
+	    <br />
+    	
+    	<p:commandButton action="#{carrinhoDeCompras.efetivarPedido}" value="Efetivar Compra" rendered="#{not carrinhoVazio}"/>
+    </p:panel>
+    
 </ui:composition>

@@ -4,8 +4,8 @@
     </description>
 	<!-- set global properties for this build -->
 	<property name="build" location="." />
-	<!--<property name="jboss" location="/home/sergemax/development_programs/jboss-as-web-7.0.2.Final" /> -->
-	<property name="jboss" location="C:\DevelopmentFiles\programs\jboss-as-web-7.0.2.Final"/>
+	<property name="jboss" location="/home/sergemax/development_programs/jboss-as-web-7.0.2.Final" /> 
+	<!--<property name="jboss" location="C:\DevelopmentFiles\programs\jboss-as-web-7.0.2.Final"/>-->
 	<property name="jboss.standalone" location="${jboss}/standalone" />
 	<property name="jboss.standalone.deploy" location="${jboss.standalone}\deployments" />
 
